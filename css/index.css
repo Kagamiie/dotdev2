@@ -61,16 +61,40 @@ body {
 main {
     display: flex;
     flex-direction: row;
+    flex: 1;
     min-height: 0;
 }
 
-.section1 {
-    background-color: red;
+/* Both sections take equal width */
+.section1,
+.section2 {
+    flex: 1;
+    min-height: 0;
 }
 
 .section2 {
-    background-color: blue !important;
+    border-left: 1px solid black;
+    padding: 20px;
 }
+
+/* Responsive stacking for smaller screens */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+    }
+
+    .section1,
+    .section2 {
+        width: 100%;
+    }
+
+    .section2 {
+        border-left: 0px solid black;
+        border-top: 1px solid black;
+        padding: 20px;
+    }
+}
+
 .content {
     flex: 1;
     overflow-y: auto;
