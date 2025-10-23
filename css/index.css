@@ -51,7 +51,7 @@ a:hover {
 
 main {
     display: flex;
-    height: calc(100vh -47px);
+    height: calc(100vh - 47px);
 }
 
 .section1,.section2{
@@ -97,6 +97,7 @@ main {
     .section1,
     .section2 {
         width: 100%;
+        height: auto;
     }
 
     .section2 {

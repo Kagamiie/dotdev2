@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(file);
       const html = await response.text();
 
-      const parsed = new DOMParser().parseFromString(html, "text/html");
+      const parsed = new DOMParser().parseFromString(html, "text/html"); // go from a "normal" html string to a usable DOM object
+      console.log(parsed)
       main.innerHTML = parsed.body.innerHTML;
     } catch {
       main.innerHTML = `<div class="error">Erreur lors du chargement de ${file}</div>`;
