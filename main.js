@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = document.getElementById("content-area");
 
   async function loadPage(file) {
-    try {
+    try { // https://sqlpey.com/javascript/top-4-methods-to-return-html-using-fetch-api/
       const response = await fetch(file);
       const html = await response.text();
 
@@ -14,23 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function handleNavigation(link) {
-    const file = link.dataset.page;
-    loadPage(file);
-
-    // Met à jour l’historique du navigateur
-    const hash = file.replace(".html", "");
-    history.pushState({ page: file }, "", `#${hash}`);
-  }
-
-  // --- Événements sur les liens ---
   links.forEach(link => {
     link.addEventListener("click", event => {
       event.preventDefault();
-      handleNavigation(link);
+      loadPage(link.dataset.page); // link.dataset.page = file
     });
   });
 
-  const initialFile = location.hash ? `${location.hash.substring(1)}.html` : "home.html";
-  loadPage(initialFile);
+  loadPage("home.html");
 });
