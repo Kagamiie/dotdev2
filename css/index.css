@@ -1,0 +1,118 @@
+/* Reset + base */
+html,
+body {
+    height: 100%; /* assure que body prend tout l’écran */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 1 auto; /* remplir l’espace restant */
+    overflow-y: auto; /* si contenu dépasse, scroll vertical */
+    max-height: calc(
+        100vh - <hauteur-nav> - <hauteur-header>
+    ); /* optionnel pour éviter dépassement */
+}
+/* Top navigation */
+.nav {
+    width: 100%;
+    /* text-align: right; */
+    font-size: 10px;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: row;
+    padding: 11px 0;
+    border-bottom: 1px solid black;
+}
+
+.top-section a {
+    text-decoration: none;
+    color: #000;
+    margin-left: 20px;
+    position: relative;
+}
+
+/* Table header row */
+.a {
+    display: grid;
+    border-bottom: 1px solid #000;
+    margin: 45px 0 0 0;
+    padding: 10px 10px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.a > div {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* For each cell */
+
+.scroll {
+    overflow-y: scroll;
+}
+
+.a1,
+.a2,
+.a3,
+.a4 {
+    text-align: left;
+}
+.a5 {
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Background + main layout */
+.bg {
+    background-color: #fff;
+}
+
+/* Optional: hover style for navigation */
+.navigation-link:hover {
+    opacity: 0.6;
+    transition: opacity 0.2s ease-in-out;
+}
+/* Colonnes et grille comme avant */
+.a,
+.row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 1fr 1fr 100px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cellules */
+.a > div,
+.row > div {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Aligner la colonne « Year » à droite */
+.a5,
+.row .a5 {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.a2,
+.row .a2 span,
+.a3,
+.row .a3 span,
+.a4,
+.row .a4 span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0; /* pour grilles */
+}
